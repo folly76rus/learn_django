@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    {% if data %}
+        {{ data|safe }}
+    {% else %}
+        <p>Нету записей</p>
+    {% endif %}
+    <form action="." method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success" name="plot" value="{{ plot }}">Сменить график</button>
+    </form>
+{% endblock %}
